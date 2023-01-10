@@ -1,5 +1,3 @@
-
-import { Document } from "mongoose";
 import * as Kunde from "../models/Kunde.js";
 
 export const getAll = async (req, res) => {
