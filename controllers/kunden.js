@@ -1,4 +1,5 @@
 
+import { Document } from "mongoose";
 import * as Kunde from "../models/Kunde.js";
 
 export const getAll = async (req, res) => {
@@ -12,7 +13,7 @@ export const create = async (req, res) => {
     // Dabei übergeben wir die relevanten Daten aus req.body an die Methode.
     // Wir hatten im Model definiert, dass wir drei Argumente übergeben können,
     // Alternativ ist natürlich auch ein Objekt oder jede andere Form von Argumenten möglich.
-    const result = await Kunde.create(req.body.title, req.body.description, req.body.test);
+    const result = await Kunde.create(Document);
 
     res.status(201).json(result);
 }

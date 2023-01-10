@@ -10,7 +10,7 @@ const schema = new mongoose.Schema({
     Firmenname: {
         type: String,
     },
-    EMailAdresse: {
+    EmailAdresse: {
         type: String,
         required: true,
     },
@@ -22,7 +22,7 @@ const schema = new mongoose.Schema({
     },
 });
 
-const Report = mongoose.model("Kunden", schema); // Collection => kunden
+const Kunde = mongoose.model("Kunden", schema); // Collection => kunden
 
 
 export const getAll = async () => {
@@ -30,13 +30,13 @@ export const getAll = async () => {
     return kunden;
 }
 
-// export const create = async (title, description, test) => {
-//     // Zum Erstellen eines neuen Datensatzes instanziieren wir ein neues Objekt des Models.
-//     // Im Constructor übergeben wir das zu erstellende Dokument.
-//     const newReport = new Report({ title, description, test });
+export const create = async (EmailAdresse) => {
+    // Zum Erstellen eines neuen Datensatzes instanziieren wir ein neues Objekt des Models.
+    // Im Constructor übergeben wir das zu erstellende Dokument.
+    const newKunde = new Kunde({ EmailAdresse });
 
-//     // Erst wenn wir save() ausführen, wird der Datensatz in der Collection gespeichert.
-//     const result = await newReport.save();
-//     return result;
-// }
+    // Erst wenn wir save() ausführen, wird der Datensatz in der Collection gespeichert.
+    const result = await newKunde.save();
+    return result;
+}
 
