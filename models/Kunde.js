@@ -13,6 +13,7 @@ const schema = new mongoose.Schema({
     EmailAdresse: {
         type: String,
         required: true,
+        unique: true,
     },
     Grosskunde: {
         type: Boolean,
@@ -30,10 +31,10 @@ export const getAll = async () => {
     return kunden;
 }
 
-export const create = async (EmailAdresse) => {
+export const create = async (document) => {
     // Zum Erstellen eines neuen Datensatzes instanziieren wir ein neues Objekt des Models.
     // Im Constructor übergeben wir das zu erstellende Dokument.
-    const newKunde = new Kunde({ EmailAdresse });
+    const newKunde = new Kunde( document );
 
     // Erst wenn wir save() ausführen, wird der Datensatz in der Collection gespeichert.
     const result = await newKunde.save();
